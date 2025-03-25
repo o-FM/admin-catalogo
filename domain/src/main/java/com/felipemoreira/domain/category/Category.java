@@ -1,9 +1,9 @@
 package com.felipemoreira.domain.category;
 
 import com.felipemoreira.domain.AggregationRoot;
+import com.felipemoreira.domain.validation.ValidationHandler;
 
 import java.time.Instant;
-import java.util.UUID;
 
 public class Category extends AggregationRoot<CategoryID> {
 
@@ -28,7 +28,13 @@ public class Category extends AggregationRoot<CategoryID> {
     public static Category newCategory(final String aName, final String aDescription, final boolean aIsActive) {
         final var id = CategoryID.unique();
         final var now = Instant.now();
-        return new Category(id, aName, aDescription, aIsActive, now, now, null);
+        final var deletedAt = aIsActive ? null : now;
+        return new Category(id, aName, aDescription, aIsActive, now, now, deletedAt);
+    }
+
+    @Override
+    public void validate(final ValidationHandler handler) {
+        new CategoryValidator(this, handler).validate();
     }
 
     public CategoryID getId() {

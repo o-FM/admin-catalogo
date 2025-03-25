@@ -1,5 +1,7 @@
 package com.felipemoreira.domain;
 
+import com.felipemoreira.domain.validation.ValidationHandler;
+
 import java.util.Objects;
 
 public abstract class Entity<ID extends Identifier> {
@@ -11,6 +13,7 @@ public abstract class Entity<ID extends Identifier> {
         this.id = id;
     }
 
+    public abstract void validate(ValidationHandler handler);
     public ID getId() {
         return id;
     }
