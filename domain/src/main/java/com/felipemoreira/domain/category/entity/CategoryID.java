@@ -1,4 +1,4 @@
-package com.felipemoreira.domain.category;
+package com.felipemoreira.domain.category.entity;
 
 import com.felipemoreira.domain.Identifier;
 

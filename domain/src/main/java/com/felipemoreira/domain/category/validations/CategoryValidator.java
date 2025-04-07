@@ -1,5 +1,6 @@
-package com.felipemoreira.domain.category;
+package com.felipemoreira.domain.category.validations;
 
+import com.felipemoreira.domain.category.entity.Category;
 import com.felipemoreira.domain.validation.Error;
 import com.felipemoreira.domain.validation.ValidationHandler;
 import com.felipemoreira.domain.validation.Validator;

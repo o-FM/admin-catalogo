@@ -1,6 +1,7 @@
-package com.felipemoreira.domain.category;
+package com.felipemoreira.domain.category.entity;
 
 import com.felipemoreira.domain.AggregationRoot;
+import com.felipemoreira.domain.category.validations.CategoryValidator;
 import com.felipemoreira.domain.validation.ValidationHandler;
 
 import java.time.Instant;

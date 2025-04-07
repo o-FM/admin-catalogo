@@ -1,6 +1,6 @@
 package com.felipemoreira.application;
 
-import com.felipemoreira.domain.category.Category;
+import com.felipemoreira.domain.category.entity.Category;
 
 public class UseCase {
 
