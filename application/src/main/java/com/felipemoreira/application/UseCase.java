@@ -1,10 +1,6 @@
 package com.felipemoreira.application;
 
-import com.felipemoreira.domain.category.entity.Category;
+public abstract class UseCase<IN, OUT> {
 
-public class UseCase {
-
-    public Category execute() {
-        return null;
-    };
+    public abstract OUT execute(IN in);
 }
