@@ -9,6 +9,10 @@ import org.mockito.Mockito;
 import java.util.Objects;
 
 import static org.mockito.AdditionalAnswers.returnsFirstArg;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.argThat;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
 
 public class CreateCategoryUseCaseTest {
 
@@ -22,24 +26,23 @@ public class CreateCategoryUseCaseTest {
         final var command = CreateCategoryCommand.with(expectedName, expectedDescription, expectedIsActive);
 
         final CategoryGateway categoryGateway = Mockito.mock(CategoryGateway.class);
-        Mockito.when(categoryGateway.create(Mockito.any())).thenAnswer(returnsFirstArg());
+        when(categoryGateway.create(any())).thenAnswer(returnsFirstArg());
 
-        final var useCase = new CreateCategoryUseCase(categoryGateway);
+        final var useCase = new DefaultCreateCategoryUseCase(categoryGateway);
 
         final var actualOutout = useCase.execute(command);
 
         Assertions.assertNotNull(actualOutout);
-        Assertions.assertNotNull(actualOutout.getId());
+        Assertions.assertNotNull(actualOutout.categoryID());
 
-        Mockito.verify(categoryGateway, Mockito.times(1))
-                .create(Mockito.argThat(category -> {
+        Mockito.verify(categoryGateway, times(1)).create(argThat(category -> {
                     return Objects.equals(expectedName, category.getName())
                             && Objects.equals(expectedDescription, category.getDescription())
                             && Objects.equals(expectedIsActive, category.isActive())
                             && Objects.nonNull(category.getId())
                             && Objects.nonNull(category.getCreatedAt())
                             && Objects.nonNull(category.getUpdatedAt())
-                            && Objects.nonNull(category.getDeletedAt());
+                            && Objects.isNull(category.getDeletedAt());
                 }));
     }
 }
