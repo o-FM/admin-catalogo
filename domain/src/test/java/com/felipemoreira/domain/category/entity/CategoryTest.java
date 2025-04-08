@@ -1,6 +1,5 @@
-package com.felipemoreira.domain.category;
+package com.felipemoreira.domain.category.entity;
 
-import com.felipemoreira.domain.category.entity.Category;
 import com.felipemoreira.domain.exceptions.DomainException;
 import com.felipemoreira.domain.validation.handler.ThrowsValidationHandler;
 import org.junit.jupiter.api.Assertions;
