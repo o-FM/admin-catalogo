@@ -1,6 +1,5 @@
 package com.felipemoreira.application.category.create;
 
-import com.felipemoreira.domain.category.entity.Category;
 import com.felipemoreira.domain.category.interfaces.CategoryGateway;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
