@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public class CategoryID extends Identifier {
 
-    public final String value;
+    private final String value;
 
     private CategoryID(final String value) {
         Objects.requireNonNull(value);
@@ -24,6 +24,10 @@ public class CategoryID extends Identifier {
 
     public static CategoryID from(final UUID anId) {
         return new CategoryID(anId.toString().toLowerCase());
+    }
+
+    public String getValue() {
+        return value;
     }
 
     @Override
