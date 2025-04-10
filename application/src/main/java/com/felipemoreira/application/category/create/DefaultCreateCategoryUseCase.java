@@ -3,10 +3,12 @@ package com.felipemoreira.application.category.create;
 import com.felipemoreira.domain.category.entity.Category;
 import com.felipemoreira.domain.category.interfaces.CategoryGateway;
 import com.felipemoreira.domain.validation.handler.Notification;
-import com.felipemoreira.domain.validation.handler.ThrowsValidationHandler;
 import io.vavr.control.Either;
 
 import java.util.Objects;
+
+import static io.vavr.API.Left;
+import static io.vavr.API.Try;
 
 public class DefaultCreateCategoryUseCase extends CreateCategoryUseCase {
 
@@ -23,10 +25,12 @@ public class DefaultCreateCategoryUseCase extends CreateCategoryUseCase {
         final var notification = Notification.create();
         category.validate(notification);
 
-        if (notification.hasError()) {
-            //
-        }
+        return notification.hasError() ? Left(notification) : create(category);
+    }
 
-        return CreateCategoryOutput.from(this.categoryGateway.create(category));
+    private Either<Notification, CreateCategoryOutput> create(final Category category) {
+        return Try(() -> this.categoryGateway.create(category))
+                .toEither()
+                .bimap(Notification::create, CreateCategoryOutput::from); // BIMAP aplica dois map's juntos
     }
 }
