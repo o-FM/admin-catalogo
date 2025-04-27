@@ -1,6 +1,5 @@
-package com.felipemoreira.domain.category;
+package com.felipemoreira.domain.category.entity;
 
-import com.felipemoreira.domain.category.entity.Category;
 import com.felipemoreira.domain.exceptions.DomainException;
 import com.felipemoreira.domain.validation.handler.ThrowsValidationHandler;
 import org.junit.jupiter.api.Assertions;
@@ -269,6 +268,6 @@ public class CategoryTest {
         Assertions.assertTrue(aCategory.isActive());
         Assertions.assertEquals(createdAt, actualCategory.getCreatedAt());
         Assertions.assertTrue(actualCategory.getUpdatedAt().isAfter(updatedAt));
-        Assertions.assertNull(actualCategory.getDeletedAt());
+        Assertions.assertNull(aCategory.getDeletedAt());
     }
 }
