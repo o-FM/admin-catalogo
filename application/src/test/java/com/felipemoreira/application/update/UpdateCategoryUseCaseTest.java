@@ -1,5 +1,7 @@
 package com.felipemoreira.application.update;
 
+import com.felipemoreira.application.category.update.DefaultUpdateCategoryUseCase;
+import com.felipemoreira.application.category.update.UpdateCategoryCommand;
 import com.felipemoreira.domain.category.entity.Category;
 import com.felipemoreira.domain.category.interfaces.CategoryGateway;
 import org.junit.jupiter.api.Assertions;
@@ -57,7 +59,7 @@ public class UpdateCategoryUseCaseTest {
                                 && Objects.equals(expectedIsActive, aUpdateCategory.isActive())
                                 && Objects.equals(expectedId, aUpdateCategory.getId())
                                 && Objects.equals(aCategory.getCreatedAt(), aUpdateCategory.getCreatedAt())
-                                && aCategory.getCreatedAt().isBefore(aUpdateCategory.getCreatedAt())
+                                && Objects.equals(aCategory.getUpdatedAt(), aUpdateCategory.getUpdatedAt())
                                 && Objects.isNull(aUpdateCategory.getDeletedAt())
         ));
     }
