@@ -1,4 +1,4 @@
-package com.felipemoreira.application.category.retrieve;
+package com.felipemoreira.application.category.retrieve.get;
 
 import com.felipemoreira.domain.category.entity.Category;
 import com.felipemoreira.domain.category.entity.CategoryID;
@@ -57,7 +57,7 @@ public class GetCategoryByIdUseCaseTest {
     @Test
     public void givenAInvalidId_whenCallsGetCategory_shouldReturnNotFound() {
         final var expectedId = CategoryID.from("123");
-        final var expectedErrorMessage = "";
+        final var expectedErrorMessage = "Category with ID 123 was nout found";
 
         when(categoryGateway.findById(eq(expectedId)))
                 .thenReturn(Optional.empty());
