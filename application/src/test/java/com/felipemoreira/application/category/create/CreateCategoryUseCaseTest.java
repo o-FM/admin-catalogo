@@ -1,5 +1,7 @@
 package com.felipemoreira.application.category.create;
 
+import com.felipemoreira.application.category.CreateCategoryCommand;
+import com.felipemoreira.application.category.DefaultCreateCategoryUseCase;
 import com.felipemoreira.domain.category.interfaces.CategoryGateway;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -97,7 +99,7 @@ public class CreateCategoryUseCaseTest {
     }
 
     @Test
-    public void givenAValidCommand_whenGatewayThrowsTamdomException_shouldReturnAException() {
+    public void givenAValidCommand_whenGatewayThrowsRandomException_shouldReturnAException() {
         final var expectedName = "Filmes";
         final var expectedDescription = "A categoria mais assistida";
         final var expectedIsActive = true;

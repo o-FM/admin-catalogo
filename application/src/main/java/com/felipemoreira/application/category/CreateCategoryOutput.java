@@ -1,9 +1,7 @@
-package com.felipemoreira.application.category.create;
+package com.felipemoreira.application.category;
 
 import com.felipemoreira.domain.category.entity.Category;
 import com.felipemoreira.domain.category.entity.CategoryID;
-
-import java.io.Serializable;
 
 public record CreateCategoryOutput(CategoryID categoryID) {
 

@@ -1,4 +1,4 @@
-package com.felipemoreira.application.category.create;
+package com.felipemoreira.application.category;
 
 import com.felipemoreira.application.UseCase;
 import com.felipemoreira.domain.validation.handler.Notification;
