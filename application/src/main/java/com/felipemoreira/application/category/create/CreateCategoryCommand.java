@@ -1,4 +1,4 @@
-package com.felipemoreira.application.category;
+package com.felipemoreira.application.category.create;
 
 public record CreateCategoryCommand(
         String name,

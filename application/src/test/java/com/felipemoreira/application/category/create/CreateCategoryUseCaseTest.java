@@ -1,7 +1,5 @@
 package com.felipemoreira.application.category.create;
 
-import com.felipemoreira.application.category.CreateCategoryCommand;
-import com.felipemoreira.application.category.DefaultCreateCategoryUseCase;
 import com.felipemoreira.domain.category.interfaces.CategoryGateway;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

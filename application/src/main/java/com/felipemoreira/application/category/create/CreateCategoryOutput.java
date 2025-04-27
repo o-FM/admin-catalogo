@@ -1,4 +1,4 @@
-package com.felipemoreira.application.category;
+package com.felipemoreira.application.category.create;
 
 import com.felipemoreira.domain.category.entity.Category;
 import com.felipemoreira.domain.category.entity.CategoryID;

@@ -1,6 +1,5 @@
 package com.felipemoreira.application.category.update;
 
-import com.felipemoreira.application.category.CreateCategoryCommand;
 import com.felipemoreira.domain.category.entity.Category;
 import com.felipemoreira.domain.category.entity.CategoryID;
 import com.felipemoreira.domain.category.interfaces.CategoryGateway;
