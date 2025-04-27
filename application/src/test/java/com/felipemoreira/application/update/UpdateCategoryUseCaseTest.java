@@ -42,7 +42,7 @@ public class UpdateCategoryUseCaseTest {
         final var aCommand = UpdateCategoryCommand.with(expectedId.getValue(),
                 expectedName, expectedDescription, expectedIsActive);
 
-        when(categoryGateway.findById(eq(expectedId))).thenReturn(Optional.of(aCategory));
+        when(categoryGateway.findById(eq(expectedId))).thenReturn(Optional.of(Category.clone(aCategory)));
         when(categoryGateway.update(any())).thenAnswer(returnsFirstArg());
 
         final var actualOutput = useCase.execute(aCommand).get();
@@ -59,7 +59,7 @@ public class UpdateCategoryUseCaseTest {
                                 && Objects.equals(expectedIsActive, aUpdateCategory.isActive())
                                 && Objects.equals(expectedId, aUpdateCategory.getId())
                                 && Objects.equals(aCategory.getCreatedAt(), aUpdateCategory.getCreatedAt())
-                                && Objects.equals(aCategory.getUpdatedAt(), aUpdateCategory.getUpdatedAt())
+                                && aCategory.getUpdatedAt().isBefore(aUpdateCategory.getUpdatedAt())
                                 && Objects.isNull(aUpdateCategory.getDeletedAt())
         ));
     }

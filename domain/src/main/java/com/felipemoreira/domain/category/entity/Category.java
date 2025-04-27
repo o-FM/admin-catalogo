@@ -6,7 +6,7 @@ import com.felipemoreira.domain.validation.ValidationHandler;
 
 import java.time.Instant;
 
-public class Category extends AggregationRoot<CategoryID> {
+public class Category extends AggregationRoot<CategoryID> implements Cloneable {
 
     private String name;
     private String description;
@@ -31,6 +31,10 @@ public class Category extends AggregationRoot<CategoryID> {
         final var now = Instant.now();
         final var deletedAt = aIsActive ? null : now;
         return new Category(id, aName, aDescription, aIsActive, now, now, deletedAt);
+    }
+
+    public static Category clone(final Category aCategory) {
+        return aCategory.clone();
     }
 
     @Override
@@ -93,5 +97,16 @@ public class Category extends AggregationRoot<CategoryID> {
 
     public Instant getDeletedAt() {
         return deletedAt;
+    }
+
+    @Override
+    public Category clone() {
+        try {
+            Category clone = (Category) super.clone();
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }
