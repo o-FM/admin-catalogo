@@ -1,11 +1,13 @@
 package com.felipemoreira.infrastructure;
 
-import com.felipemoreira.application.UseCase;
+import com.felipemoreira.infrastructure.config.WebServerConfig;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Application {
-    public static void main(String[] args) {
-        System.out.printf("Hello and welcome!");
 
-        System.out.println("Welcome to Infrastructure!");
+    public static void main(String[] args) {
+        SpringApplication.run(WebServerConfig.class, args);
     }
 }
